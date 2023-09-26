@@ -3,6 +3,9 @@ class CalcController < ApplicationController
     render({template: "calc_template/squarenew"})
   end
   def squaredone
+    number = params.fetch("square")
+    @num = number.to_f
+    @squared = number.to_f * number.to_f
     render({template: "calc_template/squaredone"})
   end
   def squarerootnew
