@@ -1,4 +1,4 @@
-Class CalcController < ApplicationController
+class CalcController < ApplicationController
   def squarenew
     render({template: "calc_template/squarenew"})
   end
