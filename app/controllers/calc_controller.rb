@@ -11,7 +11,10 @@ class CalcController < ApplicationController
   def squarerootnew
     render({template: "calc_template/squarerootnew"})
   end
-  def squarrootdone
+  def findroot
+    number = params.fetch("square").to_f
+    @num = number.to_s
+    @root = Math.sqrt(number)
     render({template: "calc_template/squarerootdone"})
   end
   def randomnew
