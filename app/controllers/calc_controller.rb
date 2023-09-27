@@ -29,7 +29,19 @@ class CalcController < ApplicationController
   def paymentnew
     render({template: "calc_template/paymentnew"})
   end
-  def paymendone
+  def paymentdone
+    apr_raw = params.fetch("apr").to_f
+    @aprstring=apr_raw.to_fs(:percentage, {:precision => 4})
+    @years = params.fetch("years").to_f
+    @pv = params.fetch("principal").to_f
+
+    n = @years *12
+    apr = apr_raw/100
+    r= apr/12
+    numerator = r * @pv
+    denominator = 1-((1+r)**-n)
+    payment = numerator/denominator
+    @paymentstring = payment.to_fs(:currency)
     render({template: "calc_template/paymentdone"})
   end
 end
