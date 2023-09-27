@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get("/findroot", {controller: "calc", action: "findroot"})
   get("/payment/new",{controller:"calc", action: "paymentnew"})
   get("/random/new", {controller: "calc", action: "randomnew"})
+  get("/random/done",{controller: "calc", action: "randomdone"})
   get("/", {controller: "calc", action: "squarenew"})
 end

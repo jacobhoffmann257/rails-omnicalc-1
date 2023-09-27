@@ -21,6 +21,9 @@ class CalcController < ApplicationController
     render({template: "calc_template/randomnew"})
   end
   def randomdone
+    @min = params.fetch("min").to_f
+    @max = params.fetch("max").to_f
+    @num = rand(@min..@max)
     render({template: "calc_template/randomdone"})
   end
   def paymentnew
